@@ -1,4 +1,4 @@
-{% set version = '1.5-2' %}
+{% set version = '1.5-3' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -11,12 +11,13 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/vars_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/vars/vars_{{ version }}.tar.gz
-  sha256: 50fa365a24885f021f7f5a3bd4d898ecfec0c14784ca9d9db284f30356f985e0
+  sha256: 86afa75dff18f6b0d4c044d6fafde6f817e3e4732a0c8b10b029507a04da867d
 
 build:
   merge_build_host: True  # [win]
   # If this is a new build for the same version, increment the build number.
   number: 0
+  noarch: generic
 
   # This is required to make R link correctly on Linux.
   rpaths:
@@ -62,6 +63,7 @@ about:
     error variance decomposition and impulse response functions of VAR models and estimation
     of SVAR and SVEC models.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
 
 extra:
   recipe-maintainers:
@@ -74,8 +76,8 @@ extra:
 # Package: vars
 # Type: Package
 # Title: VAR Modelling
-# Version: 1.5-2
-# Date: 2013-07-22
+# Version: 1.5-3
+# Date: 2018-08-05
 # Authors@R: c(person("Bernhard", "Pfaff", email = "bernhard@pfaffikus.de", role = c("aut", "cre")), person("Matthieu", "Stigler", role = "ctb"))
 # Depends: R (>= 2.0.0), MASS, strucchange, urca (>= 1.1-6), lmtest (>= 0.9-26), sandwich (>= 2.2-4)
 # LazyLoad: yes
@@ -86,10 +88,10 @@ extra:
 # Maintainer: Bernhard Pfaff <bernhard@pfaffikus.de>
 # Repository: CRAN
 # Repository/R-Forge/Project: vars
-# Repository/R-Forge/Revision: 99
-# Repository/R-Forge/DateTimeStamp: 2013-07-21 14:35:42
-# Date/Publication: 2013-07-22 10:42:44
-# Packaged: 2013-07-21 18:20:24 UTC; rforge
+# Repository/R-Forge/Revision: 105
+# Repository/R-Forge/DateTimeStamp: 2018-08-05 10:46:59
+# Date/Publication: 2018-08-06 08:00:03 UTC
+# Packaged: 2018-08-05 10:55:37 UTC; rforge
 # NeedsCompilation: no
 
 # See
